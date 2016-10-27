@@ -229,20 +229,23 @@ body {
 }
 
 .jumbo-content h1 {
-  font-family: Roboto;
-  font-size: 60px;
+
+	font-family: Oswald;
+	font-size: 60px;
 	font-weight: 700;
-  color: white;
-	margin-bottom: 45px;
-	letter-spacing: 3px;
+	color: white;
+	padding: 30px;
+	background: rgba(255, 0, 0, 0.5);
+	display: inline-block;
 
 }
 
 .jumbo-content h2 {
-  color: #DB9500;
-  font-size: 30px;
-  font-family: Roboto;
-  padding: 30px;
+	background: rgba(0,0,0, 0.5);
+	font-size: 30px;
+	color: white;
+	font-family: Oswald;
+	padding: 30px;
 }
 
 /* --- Consulting --- */
