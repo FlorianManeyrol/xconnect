@@ -646,3 +646,38 @@ background-image: url(../images/quote.png);
 background-repeat: none;
 background-size: cover;
 }*/
+
+/* --- what index --- */
+
+.what {
+	padding: 40px 0px;
+	font-family: Quattrocento;
+}
+
+.what-content h2 {
+	font-size: 30px;
+	font-weight:bold;
+	padding-bottom: 20px;
+}
+
+.what-content p {
+	line-height: 1.4;
+}
+
+/* --- how index --- */
+
+.how {
+	padding: 40px 0px;
+	font-family: Quattrocento;
+	background-color: #EEEEEE;
+}
+
+.how-content h2 {
+	font-size: 30px;
+	font-weight:bold;
+	padding-bottom: 20px;
+}
+
+.how-content p {
+	line-height: 1.4;
+}
