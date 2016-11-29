@@ -651,13 +651,13 @@ background-size: cover;
 
 .what {
 	padding: 40px 0px;
-	font-family: Quattrocento;
+	font-family: "Open Sans", sans-serif;
 }
 
 .what-content h2 {
 	font-size: 30px;
 	font-weight:bold;
-	padding-bottom: 20px;
+	padding: 40px;
 }
 
 .what-content p {
@@ -668,16 +668,16 @@ background-size: cover;
 
 .how {
 	padding: 40px 0px;
-	font-family: Quattrocento;
+	font-family: "Open Sans", sans-serif;
 	background-color: #EEEEEE;
 }
 
-.how-content h2 {
+.how-head h2 {
 	font-size: 30px;
 	font-weight:bold;
-	padding-bottom: 20px;
+	padding: 40px;
 }
 
-.how-content p {
+.how-head p {
 	line-height: 1.4;
 }
