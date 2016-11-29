@@ -681,3 +681,46 @@ background-size: cover;
 .how-head p {
 	line-height: 1.4;
 }
+
+/* ---  How-integrate index --- */
+
+.how-integrate {
+	padding: 40px 0px;
+	font-family: "Open Sans", sans-serif;
+}
+
+.how-integrate-head h2 {
+	font-size: 30px;
+	font-weight:bold;
+	padding: 40px;
+}
+
+.how-integrate-head p {
+	line-height: 1.4;
+}
+
+
+/* ---  Benefits index --- */
+
+.benefits {
+	padding: 40px 0px;
+	font-family: "Open Sans", sans-serif;
+	background-color: #EEEEEE;
+}
+
+.benefits-head h2 {
+	font-size: 30px;
+	font-weight:bold;
+	padding: 40px;
+}
+
+.benefits-head p {
+	line-height: 1.4;
+}
+
+/* --- Overall index --- */
+
+.overall {
+	padding: 40px 0px;
+	font-family: "Open Sans", sans-serif;
+}
