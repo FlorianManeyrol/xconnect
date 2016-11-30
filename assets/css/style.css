@@ -702,19 +702,19 @@ background-size: cover;
 
 /* ---  Benefits index --- */
 
-.benefits {
+.benefit {
 	padding: 40px 0px;
 	font-family: "Open Sans", sans-serif;
 	background-color: #EEEEEE;
 }
 
-.benefits-head h2 {
+.benefit-head h2 {
 	font-size: 30px;
 	font-weight:bold;
 	padding: 40px;
 }
 
-.benefits-head p {
+.benefit-head p {
 	line-height: 1.4;
 }
 
