@@ -690,6 +690,10 @@ background-size: cover;
 	font-weight: Bold;
 }
 
+.how-content p {
+	line-height: 1.4;
+}
+
 /* ---  How-integrate index --- */
 
 .how-integrate {
