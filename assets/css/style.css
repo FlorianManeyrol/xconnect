@@ -715,6 +715,14 @@ background-size: cover;
 	line-height: 1.4;
 }
 
+.how-integrate-head p > a {
+	color:#AC201C;
+}
+
+.how-integrate-head img {
+	width:300px;
+}
+
 
 /* ---  Benefits index --- */
 
