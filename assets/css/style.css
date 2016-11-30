@@ -657,7 +657,7 @@ background-size: cover;
 .what-content h2 {
 	font-size: 30px;
 	font-weight:bold;
-	padding: 40px;
+	padding: 40px 0px;
 }
 
 .what-content p {
@@ -675,11 +675,19 @@ background-size: cover;
 .how-head h2 {
 	font-size: 30px;
 	font-weight:bold;
-	padding: 40px;
+	padding: 40px 0px;
 }
 
 .how-head p {
 	line-height: 1.4;
+}
+
+.how-content {
+	text-align: center;
+}
+
+.how-content h3 {
+	font-weight: Bold;
 }
 
 /* ---  How-integrate index --- */
@@ -692,7 +700,7 @@ background-size: cover;
 .how-integrate-head h2 {
 	font-size: 30px;
 	font-weight:bold;
-	padding: 40px;
+	padding: 40px 0px;
 }
 
 .how-integrate-head p {
@@ -711,7 +719,7 @@ background-size: cover;
 .benefit-head h2 {
 	font-size: 30px;
 	font-weight:bold;
-	padding: 40px;
+	padding: 40px 0px;
 }
 
 .benefit-head p {
