@@ -728,3 +728,26 @@ h3 {
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
+
+td, th {
+    padding: 10px 15px;
+}
+
+td, th {
+    padding: 15px 5px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+table {
+    width: 100%;
+    display: table;
+}
+table, th, td {
+    border: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
