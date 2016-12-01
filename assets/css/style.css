@@ -699,7 +699,7 @@ background-size: cover;
 }
 
 .how-content img {
-	width: 200px;
+	height: 250px;
 }
 
 /* ---  How-integrate index --- */
@@ -725,6 +725,10 @@ background-size: cover;
 
 .how-integrate-head img {
 	width:300px;
+}
+
+.how-integrate-content img {
+	width: 200px;
 }
 
 
