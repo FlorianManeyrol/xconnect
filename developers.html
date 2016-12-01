@@ -34,7 +34,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a class="page-scroll" href="main">Home</a></li>
+                        <li><a class="page-scroll" href="index">Home</a></li>
                         <li><a class="page-scroll" href="demo">Demo</a></li>
                         <li><a class="page-scroll" href="developers">Developers</a></li>
                         <li><a class="page-scroll" href="dorum">Forum</a></li>
@@ -62,10 +62,24 @@
           <div class="bs-docs-section">
             <h1 class="page-header" id="baseconcepts">Base Concepts</h1>
             <h2>The OpenID Connect protocol</h2>
-            <h3>Introduction</h3>
+            <h3>INTRODUCTION</h3>
             <p>The OpenID Connect protocol is at the heart of the interworking between Service Providers and X Connect. It is an overlay to the OAuth 2.0 protocol that makes it possible for Clients (Service Providers) to verify users identity by the means of an authorization server (called Identity Provider) implemented on the XConnect Gateway.</p>
             <p>The Service Providers (SP) have to be OpenID Connect Clients and are also called Relying Parties.</p>
             <p>The OIDC protocl specification lies here  http://openid.net/connect/. Herafter, we guide you trough the configuration of your OpenID Connect enabled application in order for your users to be able authenticate by XConnect. We also help you integrate the required fonctions into your application.</p>
+
+            <h3>STANDARD FLOWS</h3>
+
+
+
+The OpenID Connect protocol defines 3 REST calls done by the client (you as a Service Provider) and 4 endpoints, one on the client side and 3 on the Identity Provider side.
+
+Beforehand, the client application would subscribe (manually) to the Identity Provider. Doing so, it indicates a callback URL (the URL to which the user will be redirected once authenticated). This URL is also called "callback endpoint". In return to the subscription, the Identity Provider gives the client a client ID and secret.
+
+Whenever the user clicks on the XConnect authentication button at client side, the flow is as follows;
+
+The client makes a redirection to the "authorization endpoint"at the Identity Provider with its client ID and callback URL among other parameters. The Identity Provider then redirects the user to the authentication page of the authentication service. If the user is able to correctly identifies theirself, the ID Provider sends back an authorization code to the client.
+The client then makes a Web service call to the "token endpoint" of the ID provider with the authorization code it has received, and authenticates that request with its client ID and secret. The provider returns an access token (a base64 encoded string), an ID token (taking the form of a JSON Web token see  https://developer.atlassian.com/static/connect/docs/concepts/understanding-jwt.html) and somtimes a refresh token (a base64 encoded string)
+The client makes a Web service call to the "userInfo endpoint" of the ID Provider with the received access token and the ID Gateway sends back the user information to the client.
 
           </div>
           <div class="bs-docs-section">
