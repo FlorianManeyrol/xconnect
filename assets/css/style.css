@@ -731,6 +731,18 @@ background-size: cover;
 	width: 200px;
 }
 
+.how-integrate-content {
+	text-align: center;
+}
+
+.how-integrate-content h3 {
+	font-weight: Bold;
+}
+
+.how-integrate-content p {
+	line-height: 1.4;
+}
+
 
 /* ---  Benefits index --- */
 
