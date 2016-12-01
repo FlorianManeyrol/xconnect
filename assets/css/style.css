@@ -751,3 +751,8 @@ table, th, td {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+table.bordered>thead>tr, table.bordered>tbody>tr {
+    border-bottom: 1px solid #d0d0d0;
+}
