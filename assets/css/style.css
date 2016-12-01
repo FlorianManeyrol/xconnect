@@ -755,3 +755,7 @@ table {
 table.bordered>thead>tr, table.bordered>tbody>tr {
     border-bottom: 1px solid #d0d0d0;
 }
+
+b {
+	font-weight: bold;
+}
