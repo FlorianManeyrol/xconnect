@@ -698,6 +698,10 @@ background-size: cover;
 	line-height: 1.4;
 }
 
+.how-content img {
+	width: 200px;
+}
+
 /* ---  How-integrate index --- */
 
 .how-integrate {
