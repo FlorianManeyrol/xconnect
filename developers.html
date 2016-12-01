@@ -71,18 +71,76 @@
 
 
 
-The OpenID Connect protocol defines 3 REST calls done by the client (you as a Service Provider) and 4 endpoints, one on the client side and 3 on the Identity Provider side.
 
-Beforehand, the client application would subscribe (manually) to the Identity Provider. Doing so, it indicates a callback URL (the URL to which the user will be redirected once authenticated). This URL is also called "callback endpoint". In return to the subscription, the Identity Provider gives the client a client ID and secret.
+            <p>The OpenID Connect protocol defines 3 REST calls done by the client (you as a Service Provider) and 4 endpoints, one on the client side and 3 on the Identity Provider side.</p>
 
-Whenever the user clicks on the XConnect authentication button at client side, the flow is as follows;
 
-The client makes a redirection to the "authorization endpoint"at the Identity Provider with its client ID and callback URL among other parameters. The Identity Provider then redirects the user to the authentication page of the authentication service. If the user is able to correctly identifies theirself, the ID Provider sends back an authorization code to the client.
-The client then makes a Web service call to the "token endpoint" of the ID provider with the authorization code it has received, and authenticates that request with its client ID and secret. The provider returns an access token (a base64 encoded string), an ID token (taking the form of a JSON Web token see  https://developer.atlassian.com/static/connect/docs/concepts/understanding-jwt.html) and somtimes a refresh token (a base64 encoded string)
-The client makes a Web service call to the "userInfo endpoint" of the ID Provider with the received access token and the ID Gateway sends back the user information to the client.
+            <p>Beforehand, the client application would subscribe (manually) to the Identity Provider. Doing so, it indicates a callback URL (the URL to which the user will be redirected once authenticated). This URL is also called "callback endpoint". In return to the subscription, the Identity Provider gives the client a client ID and <<<  sec></sec>ret></secret> <  <cl></cl>ass></class>=""></secret></  p>
+
+            <p>Whenever the user clicks on the XConnect authentication button at client side, the flow is as follows;  </p>
+
+            <p>The client makes a redirection to the "authorization endpoint"at the Identity Provider with its client ID and callback URL among other parameters. The Identity Provider then redirects the user to the authentication page of the authentication service. If the user is able to correctly identifies theirself, the ID Provider sends back an authorization code to the clie  nt.</p>
+            <p>The client then makes a Web service call to the "token endpoint" of the ID provider with the authorization code it has received, and authenticates that request with its client ID and secret. The provider returns an access token (a base64 encoded string), an ID token (taking the form of a JSON Web token see  https://developer.atlassian.com/static/connect/docs/concepts/understanding-jwt.html) and somtimes a refresh token (a base64 encoded st  ring)</p>
+            <p>The client makes a Web service call to the "userInfo endpoint" of the ID Provider with the received access token and the ID Gateway sends back the user information to the client.</p>
+
+            <h3>IN THE CASE OF X CONNECT</h3>
+
+            <p>The XCOnnect Gateway serves as an ID Provider and the flows between the Client and the Gateway are standard OpenID Connect flows.</p>
+            <h2>The Pivotal Identity</h2>
+            <p>The pivotal identity is part of the user data provided through the ID Gateway to Service Providers by relying on Authentication Providers (the user would rely on thier credentials at this Authentication Provider to log-in at the Client Aplication). The pivotal identity  helps fully identify the user.</p>
+            <table class="box-shadow">
+              <thead>
+                <tr>
+                  <th colspan="3">X Connect Personnal User</th>
+                </tr>
+                <tr>
+                  <th>Fields</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>given_name</td>
+                  <td>string</td>
+                  <td>the given name (OpenIDConnect standard)</td>
+                </tr>
+                <tr>
+                  <td>family_name</td>
+                  <td>string</td>
+                  <td>the family name of birth (OpenIDConnect standard)</td>
+
+                </tr>
+                <tr>
+                  <td>birthdate</td>
+                  <td>string</td>
+                  <td>the date of birth uner the following format YYYY-MM-DD (OpenIDConnect standard)</td>
+
+                </tr>
+                <tr>
+                  <td>gender</td>
+                  <td>string</td>
+                  <td>male for men, female for women (OpenIDConnect standard)</td>
+
+                </tr>
+                <tr>
+                  <td>birthplace</td>
+                  <td>string</td>
+                  <td>the birth place code (or a null string if birthplace is abroad)</td>
+
+                </tr>
+                <tr>
+                  <td>birthcountry</td>
+                  <td>string</td>
+                  <td>the birth country code </td>
+                </tr>
+              </tbody>
+            </table>
 
           </div>
           <div class="bs-docs-section">
+            <h1 class="page-header" id="baseconcepts">Base Concepts</h1>
+
 
 
           </div>
