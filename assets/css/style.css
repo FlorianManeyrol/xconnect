@@ -716,3 +716,9 @@ background-size: cover;
 p {
     margin: 0px 0px 10px;
 }
+
+h2 {
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
