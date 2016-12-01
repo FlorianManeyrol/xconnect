@@ -748,3 +748,9 @@ background-size: cover;
 	padding: 40px 0px;
 	font-family: "Open Sans", sans-serif;
 }
+
+.overall h2 {
+	font-size: 30px;
+	font-weight:bold;
+	padding: 40px 0px;
+}
