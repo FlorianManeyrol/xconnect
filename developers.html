@@ -37,7 +37,6 @@
                         <li><a class="page-scroll" href="index">Home</a></li>
                         <li><a class="page-scroll" href="demo">Demo</a></li>
                         <li><a class="page-scroll" href="developers">Developers</a></li>
-                        <li><a class="page-scroll" href="dorum">Forum</a></li>
                         <li><a class="page-scroll" href="blog">Blog</a></li>
                         <li><a class="page-scroll" href="faq">FAQ</a></li>
                         <li><a href="contact">Contact</a></li>
@@ -552,95 +551,103 @@
                     <td>XConnect URL</td>
                   </tr>
                   <tr>
-                    <td>FS_URL</td>
+                    <td><b>FS_URL</b></td>
                     <td>Your URL as a Service Provider </td>
 
                   </tr>
                   <tr>
-                    <td>FD_URL</td>
+                    <td><b>FD_URL</b></td>
                     <td>Data Provider URL</td>
 
                   </tr>
                   <tr>
-                    <td>CALLBACK_URL_DATA	</td>
+                    <td><b>CALLBACK_URL_DATA</b>	</td>
                     <td>The Service Provider CallBack URL, Communicated at subcription to XConnect</td>
 
                   </tr>
                   <tr>
-                    <td>DATA_ENDPOINT</td>
+                    <td><b>DATA_ENDPOINT</b></td>
                     <td>Endpoint where the Data provider exposes the protected ressource. It is to be communicated bu the Data Provider
 </td>
 
                   </tr>
                   <tr>
-                    <td>POST_LOGOUT_REDIRECT_URI</td>
+                    <td><b>POST_LOGOUT_REDIRECT_URI</b></td>
                     <td>redirection URL adter the user has asked to disconnect from XConnect.
 </td>
                   </tr>
                   <tr>
-                    <td>CLIENT_ID</td>
+                    <td><b>CLIENT_ID</b></td>
                     <td>Service Provider Identifier, communicated at subcription to X Connect
 </td>
                   </tr>
                   <tr>
-                    <td>CLIENT_SECRET</td>
+                    <td><b>CLIENT_SECRET</b></td>
                     <td>Service Provider secret, communicated at subscription to X Connect
 </td>
                   </tr>
                   <tr>
-                    <td>AUTHZ_CODE</td>
+                    <td><b>AUTHZ_CODE</b></td>
                     <td>	Code returned (inside the URL) by XConnect to the Service Provider when it makes a call to the XC_URL/authorize endpoint. It is subsequently passed (into the body of the HTTP POST request) for the call to the XC_URL/token endpoint</td>
                   </tr>
                   <tr>
-                    <td>ACCESS_TOKEN</td>
+                    <td><b>ACCESS_TOKENv</td>
                     <td>Token returned (inside the HTTP body) following call to the XC_URL /token endpoint. It is then passed (inside the URL) for the call to the XC_URL/userinfo endpoint.</td>
                   </tr>
                   <tr>
-                    <td>SCOPES</td>
-                    <td>List of requested scopes separated by spaces (hence by %20 following the unicode format inside the l'URL). Hre is the list of scopes supported by XConnect
+                    <td><b>SCOPES</b></td>
+                    <td><p>List of requested scopes separated by spaces (hence by %20 following the unicode format inside the l'URL). Hre is the list of scopes supported by XConnect</p>
+                      <ul>
+                        <li><p><b>openid :</b>mandatory, is used to request the technical identity (sub) of the user following the OpenIDConnect format</p></li>
+                        <li><p><b>profile :</b>mandatory, is used to retrieve the pivot identity of the user. If available, also returns the preferred_username</p></li>
+                        <li><p><b>birth :</b>mandatory, is sued to retrieve the city and the province of birth of the user</p></li>
+                        <li><p><b>email : </b>optional, if available, returns the user email address</p></li>
+                        <li><p><b>address :</b>optional, if available, returns the user postal address</p></li>
+                        <li><p><b>phone :</b>optional, if available, returns the user phone number</p></li>
 
-openid : mandatory, is used to request the technical identity (sub) of the user following the OpenIDConnect format
-profile : mandatory, is used to retrieve the pivot identity of the user. If available, also returns the preferred_username
-birth : mandatory, is sued to retrieve the city and the province of birth of the user
-email : optional, if available, returns the user email address
-address : optional, if available, returns the user postal address
-phone : optional, if available, returns the user phone number
-This list of scopes is defined by the OpenIDConnect standard
-The complete pivotal identity is retrieved via two different scopes (profile + birth) because the city and province of birth are not part of the data that are returned at the invocation of the unique profile scope. We do the concatenation as shown n order to conform to the standard..</td>
+                      </ul>
+                      <p>This list of scopes is defined by the OpenIDConnect standard.
+                      The complete pivotal identity is retrieved via two different scopes (profile + birth) because the city and province of birth are not part of the data that are returned at the invocation of the unique profile scope. We do the concatenation as shown n order to conform to the standard..</p>
+                    </td>
+
                   </tr>
                   <tr>
-                    <td>ID_TOKEN</td>
+                    <td><b>ID_TOKEN</b></td>
                     <td>JWT object returned by call to the XC_URL/token endpoint. The JWT object is a formatted and signed object. The JSON should contain the five following keys: aud,exp,iat,iss,sub.
 
-Example :
+                    <p>Example :</p>
+                    <pre>{'aud':'895fae591ccae777094931e269e46447', 'exp':1412953984, 'iat':1412950384, 'iss':http://xconnect.com, 'sub':YWxhY3JpdMOp, 'idp':'FC', 'nonce':'12344354597459'}</pre>
+                    <p>Détail of the fields :</p>
+                    <ul>
+                      <li><p><b>aud, exp, iat, iss, sub :</b> are mandatory fileds of the OpenIDConnect standard.</p></li>
+                      <li><p><b>nonce :</b>mandatory parameter sent at the time of the /autorize call. The Service Provider should imperatively verify that the value corresponds to the one it sent, and which is linked to the user session.
+                    </ul>
+                    <p> If you use a library to convert the json into JWT, it will generate a string with 3 base64 chains separated by a dot. constitué de 3 chaînes base64 séparées par un point.</p></li></p>
+                    <p>I order to verify the signature, you have to use the secret shared with XConnect that was allocated to you at application subscription </td></p>
 
-{'aud':'895fae591ccae777094931e269e46447', 'exp':1412953984, 'iat':1412950384, 'iss':http://xconnect.com, 'sub':YWxhY3JpdMOp, 'idp':'FC', 'nonce':'12344354597459'}
-Détail of the fields :
 
-aud, exp, iat, iss, sub : are mandatory fileds of the OpenIDConnect standard.
-nonce : mandatory parameter sent at the time of the /autorize call. The Service Provider should imperatively verify that the value corresponds to the one it sent, and which is linked to the user session.
-If you use a library to convert the json into JWT, it will generate a string with 3 base64 chains separated by a dot. constitué de 3 chaînes base64 séparées par un point.
 
-I order to verify the signature, you have to use the secret shared with XConnect that was allocated to you at application subscription </td>
+
+
                   </tr>
                   <tr>
-                    <td>ID_TOKEN_HINT</td>
+                    <td><b>ID_TOKEN_HINT</b></td>
                     <td>JWT object, having the same format as the ID_TOKEN, which was received following the call at the XC_URL/token endpoint and that should be passed as parameter for the call at XC_URL/logout</td>
                   </tr>
                   <tr>
-                    <td>USER_INFO</td>
+                    <td><b>USER_INFO</b></td>
                     <td>See the pivotal identity section</td>
                   </tr>
                   <tr>
-                    <td>STATE</td>
+                    <td><b>STATE</b></td>
                     <td>	Mandatory field randomly generated by the Service Provider, that XConnect sends back unchanged in the redirection following the authentication, to be further verified by the Service Provider. It is used against Cross Site Rquest Forgery flaws.</td>
                   </tr>
                   <tr>
-                    <td>NONCE</td>
+                    <td><b>NONCE</b></td>
                     <td>Mandatory field randomly generated by the Service Provider, that XConnect sends back unchanged in the response to the token call, to be further verified by the Service Provider. It is used agains Repaly attacks.</td>
                   </tr>
                   <tr>
-                    <td>SUB</td>
+                    <td><b>SUB</b></td>
                     <td>Technical identifier (unique and permnanent over time for a given user pour un individu donné) provided by XConnect to the Service Provider. The sub is present in the IdToken returned to the Service Provider as well as in other identity information.. The sub as returned by XConnect is specific to each Service Provider, meaning that a single user would have two different scopes for two different applications.</td>
                   </tr>
                 </tbody>
