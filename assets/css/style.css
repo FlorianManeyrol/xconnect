@@ -823,6 +823,7 @@ b {
 
 .bs-docs-container p {
 	font-size: 15px;
+	text-align: justify;
 }
 
 .bs-docs-container ul {
