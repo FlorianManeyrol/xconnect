@@ -367,6 +367,44 @@
             <h2>User Data</h2>
             <div class="padding-left-20">
               <p>LIST OF AVAILABLE SCOPES FOR THE X CONNECT AUTHENTICATION STEPS </p>
+              <div class="box-shadow">
+                <p><b>X CONNECT PERSONAL USER</b></p>
+                <hr>
+                <p><b>The principal scopes (pivot identity)</b></p>
+                <ul>
+                  <li><b>openid * :</b> the technical identity (sub) of the user following the OpenIDConnect format will be returned</li>
+                  <li><b>gender :</b> the gender of the user will be returned</li>
+                  <li><b>birthdate :</b>the birthdate of the user will be returned</li>
+                  <li><b>birthcountry :</b> the birthcoutry of the user will be returned</li>
+                  <li><b>birthplace :</b> the birthplace of user will be returned</li>
+                  <li><b>given_name :</b> the given name of the user will be returned</li>
+                  <li><b>family_name :v the family name of the user will be returned</li>
+                  <li><b>email :</b> the email adress of the user will be returned</li>
+                </ul>
+                <p><b>The optionnal scope (sent information when available)</b></p>
+
+                <ul>
+                  <li>preferred_username : the preferred name of the user will be returned</li>
+                  <li>address : the postal address of the user will be returned</li>
+                  <li>phone : the telephone number of the user will be returned</li>
+                </ul>
+                <p><b>The "aliases"</b></p>
+
+                <ul>
+                  <li>identite_pivot : combines the following</li>
+                  <li>scoopes : given_name, family_name, preferred_username, birthdate, gender, birthplace and birthcountry</li>
+                  <li>profile : combines the following scoopes given_name, family_name, preferred_username, birthdate and gender</li>
+                  <li>birth : combines the following scoopes birthplace and birthcountry. allows the retrieval of the city and county of birth.</li>
+                </ul>
+
+
+
+
+
+
+
+
+              </div>
             </div>
           </div>
         </div>
