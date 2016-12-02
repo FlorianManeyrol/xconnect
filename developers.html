@@ -620,10 +620,11 @@
                     <p>Détail of the fields :</p>
                     <ul>
                       <li><p><b>aud, exp, iat, iss, sub :</b> are mandatory fileds of the OpenIDConnect standard.</p></li>
-                      <li><p><b>nonce :</b>mandatory parameter sent at the time of the /autorize call. The Service Provider should imperatively verify that the value corresponds to the one it sent, and which is linked to the user session.
+                      <li><p><b>nonce :</b>mandatory parameter sent at the time of the /autorize call. The Service Provider should imperatively verify that the value corresponds to the one it sent, and which is linked to the user session. </p></li>
                     </ul>
-                    <p> If you use a library to convert the json into JWT, it will generate a string with 3 base64 chains separated by a dot. constitué de 3 chaînes base64 séparées par un point.</p></li></p>
-                    <p>I order to verify the signature, you have to use the secret shared with XConnect that was allocated to you at application subscription </td></p>
+                    <p> If you use a library to convert the json into JWT, it will generate a string with 3 base64 chains separated by a dot. constitué de 3 chaînes base64 séparées par un point.</p>
+                    <p>I order to verify the signature, you have to use the secret shared with XConnect that was allocated to you at application subscription </p>
+                    </td>
 
 
 
