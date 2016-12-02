@@ -372,29 +372,29 @@
                 <hr>
                 <p><b>The principal scopes (pivot identity)</b></p>
                 <ul>
-                  <li><b>openid * :</b> the technical identity (sub) of the user following the OpenIDConnect format will be returned</li>
-                  <li><b>gender :</b> the gender of the user will be returned</li>
-                  <li><b>birthdate :</b>the birthdate of the user will be returned</li>
-                  <li><b>birthcountry :</b> the birthcoutry of the user will be returned</li>
-                  <li><b>birthplace :</b> the birthplace of user will be returned</li>
-                  <li><b>given_name :</b> the given name of the user will be returned</li>
-                  <li><b>family_name :v the family name of the user will be returned</li>
-                  <li><b>email :</b> the email adress of the user will be returned</li>
+                  <li><p><b>openid * :</b> the technical identity (sub) of the user following the OpenIDConnect format will be returned</p></li>
+                  <li><p><b>gender :</b> the gender of the user will be returned</p></li>
+                  <li><p><b>birthdate :</b>the birthdate of the user will be returned</p></li>
+                  <li><p><b>birthcountry :</b> the birthcoutry of the user will be returned</p></li>
+                  <li><p><b>birthplace :</b> the birthplace of user will be returned</p></li>
+                  <li><p><b>given_name :</b> the given name of the user will be returned</p></li>
+                  <li><p><b>family_name :v the family name of the user will be returned</p></li>
+                  <li><p><b>email :</b> the email adress of the user will be returnedv</p></li>
                 </ul>
                 <p><b>The optionnal scope (sent information when available)</b></p>
 
                 <ul>
-                  <li>preferred_username : the preferred name of the user will be returned</li>
-                  <li>address : the postal address of the user will be returned</li>
-                  <li>phone : the telephone number of the user will be returned</li>
+                  <li><p>preferred_username : the preferred name of the user will be returned</p></li>
+                  <li><p>address : the postal address of the user will be returned</p></li>
+                  <li><p>phone : the telephone number of the user will be returned</p></li>
                 </ul>
                 <p><b>The "aliases"</b></p>
 
                 <ul>
-                  <li>identite_pivot : combines the following</li>
-                  <li>scoopes : given_name, family_name, preferred_username, birthdate, gender, birthplace and birthcountry</li>
-                  <li>profile : combines the following scoopes given_name, family_name, preferred_username, birthdate and gender</li>
-                  <li>birth : combines the following scoopes birthplace and birthcountry. allows the retrieval of the city and county of birth.</li>
+                  <li><p>identite_pivot : combines the following</p></li>
+                  <li><p>scoopes : given_name, family_name, preferred_username, birthdate, gender, birthplace and birthcountry</p></li>
+                  <li><p>profile : combines the following scoopes given_name, family_name, preferred_username, birthdate and gender</p></li>
+                  <li><p>birth : combines the following scoopes birthplace and birthcountry. allows the retrieval of the city and county of birth.</p></li>
                 </ul>
 
 
@@ -405,8 +405,128 @@
 
 
               </div>
+              <div class="box-shadow">
+                <p><b>X CONNECT BUSINESS USER</b></p>
+                <ul>
+                  <li><p><b>openid * :</b> the technical identity (sub) of the user following the OpenIDConnect format will be returned</p></li>
+                  <li><p><b>profile * :</b> help retrieve the pivot identity. If possible returns the "preferred_username"</p></li>
+                  <br>
+                  <p><b> * mandatory</b></p>
+                  <p><i>This list of scopes is defined by the OpenIDConnect standard : http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims</i></p>
+                </ul>
+
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+            <h2>Integration of the XConnect button and kit</h2>
+            <div class="padding-left-20">
+              <p>The XConnect action button and kit are essential for the use of the service. It is mandatory to use the following button and no other for the connection of the users</p>
+              <img src="assets/images/login.svg" alt="login btn">
+              <p><b>XConnect kit after connecting - click on user</b></p>
+              <ul>
+                <li><p>John Kibaku</p></li>
+                <li><p>Include the XConnect javascript library at the bottom of the page :</p></li>
+              </ul>
+              <pre>&lt;script src="http://xconnect.herokuapp/js/xconnect.js"&gt;&lt;/script&gt;</pre>
+
+              <ul>
+                <li><p>Insert in the HTML code tje following structure :</p></li>
+              </ul>
+              <pre>&lt;div id="xconnect-profile" data-xc-logout-url="/lien-deconnexion"&gt;&lt;a href="#"&gt; le nom de l'utilisateur connecté* &lt;/a&gt;&lt;/div&gt;&gt;&lt;/script&gt;</pre>
+
+              <ul>
+                <li><p>Configure the variables :</p></li>
+
+              </ul>
+              <table class="bordered box-shadow">
+                <tbody>
+                  <tr>
+                    <td>data-xc-logout-url</td>
+                    <td>Insert the disconnect link</td>
+                  </tr>
+                  <tr>
+                    <td>Utilisateur</td>
+                    <td>Replace by the name of the connected user</td>
+
+                  </tr>
+
+
+                </tbody>
+              </table>
+              <p>The user has to be connected to XConnect for this block to be displayed. </p>
+            </div>
+            <h2>Service Provider Request for a minimal security level at authentication</h2>
+            <div class="padding-left-20">
+              <p>With XConnect, a client application actually relies on third party Authentication Provider to perform the user authentication. Possibility should there be given to the application to request that the user gets authenticated with more or less securty depending on their sensitivity (the application). A abnk web application may require a two factor authentication where a food orering web service may be happy with a single factir.</p>
+
+              <p>As the OpenIDConnect standard does not provide specific technical guideline, XConnect uses the "acr" optional claim (http://openid.net/specs/openid-connect-basic-1_0.html#RequestParameters) of the OpenIDConnect standard. the Service  Provider, will therefore have to fill the acr_values optional claim for the authentication request (call to the /authorize endpoint)</p>
+
+              <p>Concerning the acr_values claim, it is, according to the standard a volontary claim which in theory reflects a preference rather than an obligation. By providing this claim, XConnect will filter the Authentication Providers that correspond to the security level requested. The Authentication Provider will in addition return via XConnect the security level whith which they actually authenticated the user.  The SP will then be able to verify the security level.</p>
+
+              <p>Exemple of a call with a request for a minimal authentication level at Identity Provider:</p>
+              <pre>http://xconnect.herokuapp/authorize?response_type=code&client_id=123456&redirect_uri=http%3A%2F%2Ffsp1.dev.dev-franceconnect.fr%2Foidc_callback%3Ftestkey%3Dtestvalue&scope=openid%20profile%20email%20address%20phone%20preferred_username%20email%20address%20phone%20preferred_username&acr_values=eidas</pre>
+              <p>One of the following values will have to be specified</p>
+              <p><b>eidas1 :</b> standard level (example : authentification by identifier / password)</p>
+              <p><b>eidas2 :</b> sustantial level (example : "two factor authentification)</p>
+              <p><b>eidas3 :</b> high level (example : use of certificats, card reader ...)</p>
+              <p>If the claim is not specified, XConnect does not filter the Authentication Providers. if a specific level is requested, XConnect will only suggest to the user those Auth Providers with the specified level or higher. In the case of an invalid claim, XConnect will suggest an authentication page with all available Authentication Providers.</p>
+
+
+
+
             </div>
           </div>
+          <div class="bs-docs-section">
+            <h1 class="page-header" id="disconnect">I want to disconnect the user from XConnect</h1>
+            <div class="padding-left-20">
+              <p>XConnect implements the disconnection as being specified in the OpenID Connect standard :http://openid.net/specs/openid-connect-session-1_0.html#RPLogout</p>
+              <p>The SP should be able to propose the disconnection to its user. Here is the global kinematic:</p>
+              <ul>
+                <li><p>The user clicks on the deconnection link presented by the SP</p></li>
+                <li><p>The SP shall <b>disconnect</b> the user from the application then redirect them to the deconnection page of XConnect  : &lt;XC_URL&gt;/logout</p></li>
+                <li><p>From there, if they like, the user is disconnected from the XConnect service</p></li>
+                <li><p>The user is redirected to the return page specified by the SP</p></li>
+                <li><p>The SP should indicate the URL where the user will be redirected once they have chosen to disconnect from XConnect. -(This is done via the <b>post_logout_redirect_uri parameter</b>). The SP should also pass the id_token at the time of the authentication, via the id_token_hint parameter.</p></li>
+                <li><p>The deconnection URLs will have to be specified as part of the client parameters.</p></li>
+              </ul>
+
+            </div>
+            <div class="box-shadow">
+              <p><b>REQUETE</b></p>
+
+              <div class="padding-left-20">
+              <p><b>&lt;XC_URL&gt;/logout [Redirection]</b></p>
+              <hr>
+
+              <p>URL: </p>
+              <pre>&lt;XC_URL&gt;/authorize?response_type=code&client_id=&lt;CLIENT_ID&gt;&redirect_uri=&lt;FS_URL&gt;%2F&lt;URL_CALLBACK&gt;&scope=&lt;SCOPES&gt;&state=&lt;STATE&gt;&nonce=&lt;NONCE&gt;</pre>
+              <p>Méthod : GET</p>
+              </div>
+
+
+
+
+            </div>
+
+
+
+The user clicks on the deconnection link presented by the SP
+
+The SP shall disconnect the user from the application then redirect them to the deconnection page of XConnect  : <XC_URL>/logout
+
+From there, if they like, the user is disconnected from the XConnect service
+The user is redirected to the return page specified by the SP
+The SP should indicate the URL where the user will be redirected once they have chosen to disconnect from XConnect. -(This is done via the post_logout_redirect_uri parameter). The SP should also pass the id_token at the time of the authentication, via the id_token_hint parameter.
+The deconnection URLs will have to be specified as part of the client parameters.
+          </div>
+
         </div>
         <div class="col-md-3" role="complementary">
           <nav class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix" data-spy="affix" data-offset-top="250" id="side-nav">
@@ -416,6 +536,9 @@
               </li>
               <li class="">
                 <a href="#identify">Identify/authenticate users</a>
+              </li>
+              <li class="">
+                <a href="#disconnect">Disconnect the user from XConnect</a>
               </li>
             </ul>
           </nav>
