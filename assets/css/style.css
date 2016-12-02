@@ -825,6 +825,10 @@ b {
 	font-size: 15px;
 }
 
+.bs-docs-container ul {
+  padding-left: 20px;
+}
+
 .padding-left-20 {
 	padding-left: 20px;
 }
