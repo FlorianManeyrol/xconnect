@@ -430,7 +430,8 @@
             <h2>Integration of the XConnect button and kit</h2>
             <div class="padding-left-20">
               <p>The XConnect action button and kit are essential for the use of the service. It is mandatory to use the following button and no other for the connection of the users</p>
-              <img src="assets/images/login.svg" alt="login btn">
+              <img src="assets/images/login.svg" alt="login btn" style="height: 60px;">
+              <br>
               <p><b>XConnect kit after connecting - click on user</b></p>
               <ul>
                 <li><p>John Kibaku</p></li>
@@ -500,13 +501,11 @@
               </ul>
 
             </div>
-            <div class="box-shadow">
-              <p><b>REQUETE</b></p>
-
-              <div class="padding-left-20">
+            <div class="padding-left-20">
+              <div class="box-shadow">
               <p><b>&lt;XC_URL&gt;/logout [Redirection]</b></p>
               <hr>
-
+              <p><b>REQUETE</b></p>
               <p>URL: </p>
               <pre>&lt;XC_URL&gt;/authorize?response_type=code&client_id=&lt;CLIENT_ID&gt;&redirect_uri=&lt;FS_URL&gt;%2F&lt;URL_CALLBACK&gt;&scope=&lt;SCOPES&gt;&state=&lt;STATE&gt;&nonce=&lt;NONCE&gt;</pre>
               <p>Méthod : GET</p>
@@ -516,17 +515,141 @@
 
 
             </div>
+          </div>
+          <div class="bs-docs-section">
+            <h1 class="page-header" id="errors">Error handling between XConnect and the Service Provider</h1>
+            <div class="padding-left-20">
+              <p>As an OpenIDConnect compatible Identity Provider, XConnext can return all sorts of errors to a client application. To do so, XConnect uses the error response codes as specified here  (http://openid.net/specs/openid-connect-core-1_0.html#AuthError, en particulier les sections 3.1.2.6 (authentification), 3.1.3.4 (jeton d'accès), 5.3.3 (service d'informations utilisateur) )</p>
+
+            </div>
+
+          </div>
+          <div class="bs-docs-section">
+            <h1 class="page-header" id="expire">XConnect data that expire</h1>
+            <div class="padding-left-20">
+
+            <p>XConnect handles several expirable data during the OpenID Connect authentication or ressource grant processes (OAuth2) flows. Each of these data has a specific lifetime above which they have to be regenareted. The details follow:</p>
+            </div>
 
 
+          </div>
+          <div class="bs-docs-section">
+            <h1 class="page-header" id="support">Support</h1>
+            <div class="padding-left-20">
 
-The user clicks on the deconnection link presented by the SP
+            <p>Service Providers can email us at contact@fiatope.com for any question relative to the implementation of XConnect</p>
+            </div>
 
-The SP shall disconnect the user from the application then redirect them to the deconnection page of XConnect  : <XC_URL>/logout
 
-From there, if they like, the user is disconnected from the XConnect service
-The user is redirected to the return page specified by the SP
-The SP should indicate the URL where the user will be redirected once they have chosen to disconnect from XConnect. -(This is done via the post_logout_redirect_uri parameter). The SP should also pass the id_token at the time of the authentication, via the id_token_hint parameter.
-The deconnection URLs will have to be specified as part of the client parameters.
+          </div>
+          <div class="bs-docs-section">
+            <h1 class="page-header" id="glossary">Glossary</h1>
+            <div class="padding-left-20">
+              <table class="bordered box-shadow">
+                <tbody>
+                  <tr>
+                    <td><b>XC_URL</b></td>
+                    <td>XConnect URL</td>
+                  </tr>
+                  <tr>
+                    <td>FS_URL</td>
+                    <td>Your URL as a Service Provider </td>
+
+                  </tr>
+                  <tr>
+                    <td>FD_URL</td>
+                    <td>Data Provider URL</td>
+
+                  </tr>
+                  <tr>
+                    <td>CALLBACK_URL_DATA	</td>
+                    <td>The Service Provider CallBack URL, Communicated at subcription to XConnect</td>
+
+                  </tr>
+                  <tr>
+                    <td>DATA_ENDPOINT</td>
+                    <td>Endpoint where the Data provider exposes the protected ressource. It is to be communicated bu the Data Provider
+</td>
+
+                  </tr>
+                  <tr>
+                    <td>POST_LOGOUT_REDIRECT_URI</td>
+                    <td>redirection URL adter the user has asked to disconnect from XConnect.
+</td>
+                  </tr>
+                  <tr>
+                    <td>CLIENT_ID</td>
+                    <td>Service Provider Identifier, communicated at subcription to X Connect
+</td>
+                  </tr>
+                  <tr>
+                    <td>CLIENT_SECRET</td>
+                    <td>Service Provider secret, communicated at subscription to X Connect
+</td>
+                  </tr>
+                  <tr>
+                    <td>AUTHZ_CODE</td>
+                    <td>	Code returned (inside the URL) by XConnect to the Service Provider when it makes a call to the XC_URL/authorize endpoint. It is subsequently passed (into the body of the HTTP POST request) for the call to the XC_URL/token endpoint</td>
+                  </tr>
+                  <tr>
+                    <td>ACCESS_TOKEN</td>
+                    <td>Token returned (inside the HTTP body) following call to the XC_URL /token endpoint. It is then passed (inside the URL) for the call to the XC_URL/userinfo endpoint.</td>
+                  </tr>
+                  <tr>
+                    <td>SCOPES</td>
+                    <td>List of requested scopes separated by spaces (hence by %20 following the unicode format inside the l'URL). Hre is the list of scopes supported by XConnect
+
+openid : mandatory, is used to request the technical identity (sub) of the user following the OpenIDConnect format
+profile : mandatory, is used to retrieve the pivot identity of the user. If available, also returns the preferred_username
+birth : mandatory, is sued to retrieve the city and the province of birth of the user
+email : optional, if available, returns the user email address
+address : optional, if available, returns the user postal address
+phone : optional, if available, returns the user phone number
+This list of scopes is defined by the OpenIDConnect standard
+The complete pivotal identity is retrieved via two different scopes (profile + birth) because the city and province of birth are not part of the data that are returned at the invocation of the unique profile scope. We do the concatenation as shown n order to conform to the standard..</td>
+                  </tr>
+                  <tr>
+                    <td>ID_TOKEN</td>
+                    <td>JWT object returned by call to the XC_URL/token endpoint. The JWT object is a formatted and signed object. The JSON should contain the five following keys: aud,exp,iat,iss,sub.
+
+Example :
+
+{'aud':'895fae591ccae777094931e269e46447', 'exp':1412953984, 'iat':1412950384, 'iss':http://xconnect.com, 'sub':YWxhY3JpdMOp, 'idp':'FC', 'nonce':'12344354597459'}
+Détail of the fields :
+
+aud, exp, iat, iss, sub : are mandatory fileds of the OpenIDConnect standard.
+nonce : mandatory parameter sent at the time of the /autorize call. The Service Provider should imperatively verify that the value corresponds to the one it sent, and which is linked to the user session.
+If you use a library to convert the json into JWT, it will generate a string with 3 base64 chains separated by a dot. constitué de 3 chaînes base64 séparées par un point.
+
+I order to verify the signature, you have to use the secret shared with XConnect that was allocated to you at application subscription </td>
+                  </tr>
+                  <tr>
+                    <td>ID_TOKEN_HINT</td>
+                    <td>JWT object, having the same format as the ID_TOKEN, which was received following the call at the XC_URL/token endpoint and that should be passed as parameter for the call at XC_URL/logout</td>
+                  </tr>
+                  <tr>
+                    <td>USER_INFO</td>
+                    <td>See the pivotal identity section</td>
+                  </tr>
+                  <tr>
+                    <td>STATE</td>
+                    <td>	Mandatory field randomly generated by the Service Provider, that XConnect sends back unchanged in the redirection following the authentication, to be further verified by the Service Provider. It is used against Cross Site Rquest Forgery flaws.</td>
+                  </tr>
+                  <tr>
+                    <td>NONCE</td>
+                    <td>Mandatory field randomly generated by the Service Provider, that XConnect sends back unchanged in the response to the token call, to be further verified by the Service Provider. It is used agains Repaly attacks.</td>
+                  </tr>
+                  <tr>
+                    <td>SUB</td>
+                    <td>Technical identifier (unique and permnanent over time for a given user pour un individu donné) provided by XConnect to the Service Provider. The sub is present in the IdToken returned to the Service Provider as well as in other identity information.. The sub as returned by XConnect is specific to each Service Provider, meaning that a single user would have two different scopes for two different applications.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+            </div>
+
+
           </div>
 
         </div>
@@ -541,6 +664,18 @@ The deconnection URLs will have to be specified as part of the client parameters
               </li>
               <li class="">
                 <a href="#disconnect">Disconnect the user from XConnect</a>
+              </li>
+              <li class="">
+                <a href="#errors">Error handling between XConnect and the Service Provider</a>
+              </li>
+              <li class="">
+                <a href="#expire">XConnect data that expire</a>
+              </li>
+              <li class="">
+                <a href="#support">Support</a>
+              </li>
+              <li class="">
+                <a href="#glossary">Glossary</a>
               </li>
             </ul>
           </nav>
