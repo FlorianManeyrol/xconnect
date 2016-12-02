@@ -794,3 +794,8 @@ b {
     background-color: transparent;
     border-left: 1px solid #AC201C;
 }
+
+.bs-docs-sidebar.affix {
+    position: fixed;
+    top: 40px;
+	}
