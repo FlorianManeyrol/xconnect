@@ -251,20 +251,27 @@
               <p><b>&lt;XC_URL&gt;/authorize [Redirection]</b></p>
               <hr>
               <p><b>DESCRIPTION</b></p>
-              <p><b>Context: </b>The SP (Service Provider) redirects from the precedent request to /authorize in order to engage into the authentication phase</p>
-              <br>
-              <p><b>Origin: </b> Service Provider</p>
-              <p><b>Target:</b> XConnect Gateway</p>
-              <p><b>Call type:</b> navigator redirect </p>
-              <p>Note: it is possible to add aditionnal parameters along with the redirect_uri, to be passed after the ? under the following format " key=value". They will be sent back as such at return to the SP.</p>
-              <p><b>Example</b></p>
-              <p>if you redirect to the following URL http://xconnect.herokuapp/authorize?response_type=[...]&client_id=[...]&redirect_uri=https%3A%2F%2Ffs.fr%2Foidc_callback%3Ftestkey%3Dtestvalue&state=[...]&nonce=[...]&scope=[...]</p>
-              <p>XC will redirect to the SP at following URL: https://fs.fr/oidc_callback?testkey=testvalue&[...]</p>
-              <p>This helps keeping state whenever the starting and arivial web site do not share thier Web sessions.</p>
+              <div class="padding-left-20">
+                <p><b>Context : </b>The SP (Service Provider) redirects from the precedent request to /authorize in order to engage into the authentication phase</p>
+                <p><b>Origin : </b> Service Provider</p>
+                <p><b>Target :</b> XConnect Gateway</p>
+                <p><b>Call type :</b> navigator redirect </p>
+                <p>Note : it is possible to add aditionnal parameters along with the redirect_uri, to be passed after the ? under the following format " key=value". They will be sent back as such at return to the SP.</p>
+                <br>
+                <p><b>Example</b></p>
+                <p>if you redirect to the following URL http://xconnect.herokuapp/authorize?response_type=[...]&client_id=[...]&redirect_uri=https%3A%2F%2Ffs.fr%2Foidc_callback%3Ftestkey%3Dtestvalue&state=[...]&nonce=[...]&scope=[...]</p>
+                <p>XC will redirect to the SP at following URL: https://fs.fr/oidc_callback?testkey=testvalue&[...]</p>
+                <p>This helps keeping state whenever the starting and arivial web site do not share thier Web sessions.</p>
+              </div>
+
               <p><b>REQUEST</b></p>
+              <div class="padding-left-20">
               <p>URL: </p>
-              <pre>&lt;XC_URL&gt;/authorize?response_type=code&client_id=<CLIENT_ID>&redirect_uri=<FS_URL>%2F<URL_CALLBACK>&scope=<SCOPES>&state=<STATE>&nonce=<NONCE></pre>
+              <pre>&lt;XC_URL&gt;/authorize?response_type=code&client_id=&lt;CLIENT_ID&gt;&redirect_uri=&lt;FS_URL&gt;%2F&lt;URL_CALLBACK&gt;&scope=&lt;SCOPES&gt;&state=&lt;STATE&gt;&nonce=&lt;NONCE&gt;</pre>
               <p>Méthod : GET</p>
+              </div>
+
+
               <p>RESPONSE</p>
               <p>/</p>
 
