@@ -682,7 +682,7 @@ background-size: cover;
 
 .demo-description h2 {
 	color: #444444;
-	font-size:40px;
+	font-size:50px;
 }
 
 .demo-description p {
@@ -805,6 +805,7 @@ b {
 	font-size: 30px;
 	font-weight: Bold;
 	font-family: Oswald;
+	color: #AC201C;
 }
 
 .bs-docs-container h2 {
@@ -812,7 +813,6 @@ b {
 	font-size: 25px;
 	margin-bottom: 25px;
 	font-weight: bold;
-	color: #AC201C;
 }
 
 .bs-docs-container h3 {
