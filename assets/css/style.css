@@ -797,5 +797,5 @@ b {
 
 .bs-docs-sidebar.affix {
     position: fixed;
-    top: 40px;
+    top: 100px;
 	}
