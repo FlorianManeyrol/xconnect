@@ -594,20 +594,21 @@
                     <td><b>ACCESS_TOKENv</td>
                     <td>Token returned (inside the HTTP body) following call to the XC_URL /token endpoint. It is then passed (inside the URL) for the call to the XC_URL/userinfo endpoint.</td>
                   </tr>
-                  <!-- <tr>
+                  <tr>
                     <td><b>SCOPES</b></td>
-                    <td><p>List of requested scopes separated by spaces (hence by %20 following the unicode format inside the l'URL). Hre is the list of scopes supported by XConnect</p>
+                    <td>List of requested scopes separated by spaces (hence by %20 following the unicode format inside the l'URL). Hre is the list of scopes supported by XConnect
                       <ul>
-                        <li><p><b>openid :</b>mandatory, is used to request the technical identity (sub) of the user following the OpenIDConnect format</p></li>
-                        <li><p><b>profile :</b>mandatory, is used to retrieve the pivot identity of the user. If available, also returns the preferred_username</p></li>
-                        <li><p><b>birth :</b>mandatory, is sued to retrieve the city and the province of birth of the user</p></li>
-                        <li><p><b>email : </b>optional, if available, returns the user email address</p></li>
-                        <li><p><b>address :</b>optional, if available, returns the user postal address</p></li>
-                        <li><p><b>phone :</b>optional, if available, returns the user phone number</p></li>
+                        <li><b>openid :</b>mandatory, is used to request the technical identity (sub) of the user following the OpenIDConnect format</li>
+                        <li><b>profile :</b>mandatory, is used to retrieve the pivot identity of the user. If available, also returns the preferred_username</li>
+                        <li><b>birth :</b>mandatory, is sued to retrieve the city and the province of birth of the user</li>
+                        <li><b>email : </b>optional, if available, returns the user email address</li>
+                        <li><b>address :</b>optional, if available, returns the user postal address</li>
+                        <li><b>phone :</b>optional, if available, returns the user phone number</li>
 
                       </ul>
-                      <p>This list of scopes is defined by the OpenIDConnect standard.
-                      The complete pivotal identity is retrieved via two different scopes (profile + birth) because the city and province of birth are not part of the data that are returned at the invocation of the unique profile scope. We do the concatenation as shown n order to conform to the standard..</p>
+                      This list of scopes is defined by the OpenIDConnect standard.
+                      <br>
+                      The complete pivotal identity is retrieved via two different scopes (profile + birth) because the city and province of birth are not part of the data that are returned at the invocation of the unique profile scope. We do the concatenation as shown n order to conform to the standard..
                     </td>
 
                   </tr>
@@ -615,15 +616,16 @@
                     <td><b>ID_TOKEN</b></td>
                     <td>JWT object returned by call to the XC_URL/token endpoint. The JWT object is a formatted and signed object. The JSON should contain the five following keys: aud,exp,iat,iss,sub.
 
-                    <p>Example :</p>
+                    Example :
+                    <br>
                     <pre>{'aud':'895fae591ccae777094931e269e46447', 'exp':1412953984, 'iat':1412950384, 'iss':http://xconnect.com, 'sub':YWxhY3JpdMOp, 'idp':'FC', 'nonce':'12344354597459'}</pre>
-                    <p>Détail of the fields :</p>
+                    Détail of the fields :</p>
                     <ul>
-                      <li><p><b>aud, exp, iat, iss, sub :</b> are mandatory fileds of the OpenIDConnect standard.</p></li>
-                      <li><p><b>nonce :</b>mandatory parameter sent at the time of the /autorize call. The Service Provider should imperatively verify that the value corresponds to the one it sent, and which is linked to the user session. </p></li>
+                      <li><b>aud, exp, iat, iss, sub :</b> are mandatory fileds of the OpenIDConnect standard.</li>
+                      <li><b>nonce :</b>mandatory parameter sent at the time of the /autorize call. The Service Provider should imperatively verify that the value corresponds to the one it sent, and which is linked to the user session. </li>
                     </ul>
-                    <p> If you use a library to convert the json into JWT, it will generate a string with 3 base64 chains separated by a dot. constitué de 3 chaînes base64 séparées par un point.</p>
-                    <p>I order to verify the signature, you have to use the secret shared with XConnect that was allocated to you at application subscription </p>
+                    If you use a library to convert the json into JWT, it will generate a string with 3 base64 chains separated by a dot. constitué de 3 chaînes base64 séparées par un point. <br>
+                    I order to verify the signature, you have to use the secret shared with XConnect that was allocated to you at application subscription.
                     </td>
 
 
@@ -634,7 +636,7 @@
                   <tr>
                     <td><b>ID_TOKEN_HINT</b></td>
                     <td>JWT object, having the same format as the ID_TOKEN, which was received following the call at the XC_URL/token endpoint and that should be passed as parameter for the call at XC_URL/logout</td>
-                  </tr> -->
+                  </tr>
                   <tr>
                     <td><b>USER_INFO</b></td>
                     <td>See the pivotal identity section</td>
