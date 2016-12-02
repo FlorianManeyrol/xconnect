@@ -831,9 +831,6 @@ b {
 	list-style: initial;
 }
 
-.bs-docs-container li:before {
-    color: red; /* or whatever color you prefer */
-}
 
 .padding-left-20 {
 	padding-left: 20px;
