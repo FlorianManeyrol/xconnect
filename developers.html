@@ -590,7 +590,7 @@
                     <td><b>ACCESS_TOKEN</b></td>
                     <td>Token returned (inside the HTTP body) following call to the XC_URL /token endpoint. It is then passed (inside the URL) for the call to the XC_URL/userinfo endpoint.</td>
                   </tr>
-                  <!-- <tr>
+                  <tr>
                     <td><b>SCOPES</b></td>
                     <td>List of requested scopes separated by spaces (hence by %20 following the unicode format inside the l'URL). Hre is the list of scopes supported by XConnect
                       <ul>
@@ -607,8 +607,8 @@
                       The complete pivotal identity is retrieved via two different scopes (profile + birth) because the city and province of birth are not part of the data that are returned at the invocation of the unique profile scope. We do the concatenation as shown n order to conform to the standard..
                     </td>
 
-                  </tr> -->
-                  <tr>
+                  </tr>
+                  <!-- <tr>
                     <td><b>ID_TOKEN</b></td>
                     <td>JWT object returned by call to the XC_URL/token endpoint. The JWT object is a formatted and signed object. The JSON should contain the five following keys: aud,exp,iat,iss,sub.
 
