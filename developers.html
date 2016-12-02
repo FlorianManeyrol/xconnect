@@ -136,12 +136,172 @@
                 </tr>
               </tbody>
             </table>
+            <table class="bordered box-shadow">
+              <thead>
+                <tr>
+                  <th colspan="3"><b>X Connect Business User</b></th>
+                </tr>
+                <tr>
+                  <th><b>Fields</b></th>
+                  <th><b>Type</b></th>
+                  <th><b>Description</b></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>given_name</td>
+                  <td>string</td>
+                  <td>the given name (OpenIDConnect standard)</td>
+                </tr>
+                <tr>
+                  <td>family_name</td>
+                  <td>string</td>
+                  <td>the family name of birth (OpenIDConnect standard)</td>
+
+                </tr>
+                <tr>
+                  <td>email</td>
+                  <td>string</td>
+                  <td>user email address</td>
+
+                </tr>
+                <tr>
+                  <td>EntID</td>
+                  <td>string</td>
+                  <td>the company TIN number</td>
+
+                </tr>
+              </tbody>
+            </table>
 
           </div>
           <div class="bs-docs-section">
-            <h1 class="page-header" id="baseconcepts">Base Concepts</h1>
+            <h1 class="page-header" id="identify">I want to identify/authenticate users via X Connect</h1>
+            <ul>
+              <li>Subscribe via this form : we will send you a client ID and client secret </li>
+              <li>Get an Openid Connect client
+                <ul>
+                  <li>we provide you with example client application that interwork with X Connect: https://github.com/xconect/service-providers-examples</li>
+                  <li>other clients are available here http://openid.net/developers/libraries/. You need to choose an implementation which has "Relying Party" set at "yes". You may have to modify your client for it to be fullly compatible with the flow exhange detailed here?</li>
+                </ul>
+              </li>
+              <li>You will also have to configure our endpoint in your OpenID Connect application, your callback URL and your client ID and client secret</li>
+              <li>Insert on the authentication page of your application an X Connect button that points to your URL that triggers the first step of the OpenIDConnect kinematic. You can find some graphical resources here</li>
+            </ul>
+            <h3>OUR ENDPOINTS</h3>
+            <p>In X Connect Production envionment, these endpoints are avaiable using HTTPS. However, during the pilot phase we provide HTTP (non securre) endpoints. Make sure you do not connect your life applicaiton.</p>
+            <table class="bordered box-shadow">
+              <thead>
+                <tr>
+                  <th colspan="2"><b>X Connect Personal User</b></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Authorization</b></td>
+                  <td>http://xconnect.herokuapp/authorize</td>
+                </tr>
+                <tr>
+                  <td><b>Token</b></td>
+                  <td>http://xconnect.herokuapp/token</td>
+
+                </tr>
+                <tr>
+                  <td><b>UserInfo</b></td>
+                  <td>http://xconnect.herokuapp/userinfo</td>
+
+                </tr>
+                <tr>
+                  <td>Logout</td>
+                  <td>http://xconnect.herokuapp/logout</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="bordered box-shadow">
+              <thead>
+                <tr>
+                  <th colspan="2"><b>X Connect Personal User</b></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Authorization</b></td>
+                  <td>http://xconnect-ent.herokuapp/authorize</td>
+                </tr>
+                <tr>
+                  <td><b>Token</b></td>
+                  <td>http://xconnect-ent.herokuapp/token</td>
+
+                </tr>
+                <tr>
+                  <td><b>UserInfo</b></td>
+                  <td>http://xconnect-ent.herokuapp/userinfo</td>
+
+                </tr>
+                <tr>
+                  <td>Logout</td>
+                  <td>http://xconnect-ent.herokuapp/logout</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3>DETAILS OF HOW IT WORKS</h3>
+            <p>Schéma to come</p>
+            <p>The retrieval of the pivotal identity should be done as an immediate follow-up to the precedent calls (authentication and code retrieval). it is not possible as of the implementation today to call this Web service at a different time.</p>
+            <h3>FLOW DETAILS</h3>
+            <p>In the remainder of the page, "XC_URL" will refer to either "http://xconnect.herokuapp" or http://xconnect-ent.herokuapp</p>
+            <div class="box-shadow">
+              <p><b><XC_URL>/authorize [Redirection]</b></p>
+              <hr>
+              <p><b>DESCRIPTION</b></p>
+              <p><b>Context: </b>The SP (Service Provider) redirects from the precedent request to /authorize in order to engage into the authentication phase</p>
+              <br>
+              <p><b>Origin: </b> Service Provider</p>
+              <p><b>Target:</b> XConnect Gateway</p>
+              <p><b>Call type:</b> navigator redirect </p>
+              <p>Note: it is possible to add aditionnal parameters along with the redirect_uri, to be passed after the ? under the following format " key=value". They will be sent back as such at return to the SP.</p>
+              <p><b>Example</b></p>
+              <p>if you redirect to the following URL http://xconnect.herokuapp/authorize?response_type=[...]&client_id=[...]&redirect_uri=https%3A%2F%2Ffs.fr%2Foidc_callback%3Ftestkey%3Dtestvalue&state=[...]&nonce=[...]&scope=[...]</p>
+              <p>XC will redirect to the SP at following URL: https://fs.fr/oidc_callback?testkey=testvalue&[...]</p>
+              <p>This helps keeping state whenever the starting and arivial web site do not share thier Web sessions.</p>
+              <p><b>REQUEST</b></p>
+              <p>URL: </p>
+              <pre><XC_URL>/authorize?response_type=code&client_id=<CLIENT_ID>&redirect_uri=<FS_URL>%2F<URL_CALLBACK>&scope=<SCOPES>&state=<STATE>&nonce=<NONCE></pre>
+              <p>Méthod : GET</p>
+              <p>RESPONSE</p>
+              <p>/</p>
 
 
+            </div>
+
+
+DESCRIPTION
+
+Context: The SP (Service Provider) redirects from the precedent request to /authorize in order to engage into the authentication phase
+
+Origin : Service Provider
+Target : XConnect Gateway
+Call type : navigator redirect
+
+Note: it is possible to add aditionnal parameters along with the redirect_uri, to be passed after the ? under the following format " key=value". They will be sent back as such at return to the SP.
+
+Example:
+
+if you redirect to the following URL http://xconnect.herokuapp/authorize?response_type=[...]&client_id=[...]&redirect_uri=https%3A%2F%2Ffs.fr%2Foidc_callback%3Ftestkey%3Dtestvalue&state=[...]&nonce=[...]&scope=[...]
+
+XC will redirect to the SP at following URL: https://fs.fr/oidc_callback?testkey=testvalue&[...]
+
+This helps keeping state whenever the starting and arivial web site do not share thier Web sessions.
+
+REQUEST
+
+URL:
+
+<XC_URL>/authorize?response_type=code&client_id=<CLIENT_ID>&redirect_uri=<FS_URL>%2F<URL_CALLBACK>&scope=<SCOPES>&state=<STATE>&nonce=<NONCE>
+Méthod : GET
+
+RESPONSE
+
+/
 
           </div>
 
@@ -153,7 +313,7 @@
                 <a href="#baseconcepts">Base Concepts</a>
               </li>
               <li>
-                <a href="#baseconcepts">Base Concepts</a>
+                <a href="#identify">Identify/authenticate users</a>
               </li>
             </ul>
           </nav>

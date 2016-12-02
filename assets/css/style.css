@@ -759,3 +759,7 @@ table.bordered>thead>tr, table.bordered>tbody>tr {
 b {
 	font-weight: bold;
 }
+
+.bs-docs-container {
+	font-family: Open Sans;
+}
