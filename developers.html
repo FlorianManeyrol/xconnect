@@ -567,24 +567,20 @@
                   </tr>
                   <tr>
                     <td><b>DATA_ENDPOINT</b></td>
-                    <td>Endpoint where the Data provider exposes the protected ressource. It is to be communicated bu the Data Provider
-</td>
+                    <td>Endpoint where the Data provider exposes the protected ressource. It is to be communicated bu the Data Provider</td>
 
                   </tr>
                   <tr>
                     <td><b>POST_LOGOUT_REDIRECT_URI</b></td>
-                    <td>redirection URL adter the user has asked to disconnect from XConnect.
-</td>
+                    <td>redirection URL adter the user has asked to disconnect from XConnect.</td>
                   </tr>
                   <tr>
                     <td><b>CLIENT_ID</b></td>
-                    <td>Service Provider Identifier, communicated at subcription to X Connect
-</td>
+                    <td>Service Provider Identifier, communicated at subcription to X Connect</td>
                   </tr>
                   <tr>
                     <td><b>CLIENT_SECRET</b></td>
-                    <td>Service Provider secret, communicated at subscription to X Connect
-</td>
+                    <td>Service Provider secret, communicated at subscription to X Connect</td>
                   </tr>
                   <tr>
                     <td><b>AUTHZ_CODE</b></td>
@@ -619,7 +615,7 @@
                     Example :
                     <br>
                     <pre>{'aud':'895fae591ccae777094931e269e46447', 'exp':1412953984, 'iat':1412950384, 'iss':http://xconnect.com, 'sub':YWxhY3JpdMOp, 'idp':'FC', 'nonce':'12344354597459'}</pre>
-                    Détail of the fields :</p>
+                    Détail of the fields :
                     <ul>
                       <li><b>aud, exp, iat, iss, sub :</b> are mandatory fileds of the OpenIDConnect standard.</li>
                       <li><b>nonce :</b>mandatory parameter sent at the time of the /autorize call. The Service Provider should imperatively verify that the value corresponds to the one it sent, and which is linked to the user session. </li>
