@@ -809,4 +809,17 @@ b {
 
 .bs-docs-container h2 {
 	margin-top: 30px!important;
+	font-size: 25px;
+	margin-bottom: 25px;
+	font-weight: bold;
+}
+
+.bs-docs-container h3 {
+	font-size: 18px;
+	font-weight: bold;
+	color: #999;
+}
+
+.padding-left-20 {
+	padding-left: 20px;
 }
