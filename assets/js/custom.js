@@ -13,9 +13,3 @@ $('#btn-jumbo').on('click', function () {
      scrollTop: $("#consulting").offset().top},'slow');
      return false;
 });
-
-
-$(".nav a").on("click", function(){
-   $(".nav").find(".active").removeClass("active");
-   $(this).parent().addClass("active");
-});
