@@ -861,3 +861,8 @@ pre {
 code, kbd, pre, samp {
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }
+
+
+.bs-docs-sidebar .nav ul.nav {
+    display: none;
+}
