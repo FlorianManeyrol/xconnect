@@ -873,3 +873,13 @@ code, kbd, pre, samp {
   display: -ms-flexbox;
   display: flex;
 }
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-item {
+  flex: 1 0 auto;
+}
