@@ -866,3 +866,10 @@ code, kbd, pre, samp {
 .bs-docs-sidebar .nav ul.nav {
     display: none;
 }
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
