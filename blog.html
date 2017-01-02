@@ -59,82 +59,95 @@
     </div>
   </div>
 
-  <!-- Ajouter ici vos nouveaux articles, décommenté en supprimant cette ligne et la fleche du dessous "->"
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="post-container" id="post-one">
+        <div class="post-content">
+          <div class="post-date">
+            <i class="fa fa-date" aria-hidden="true"></i> 26/10/2016
+          </div>
+          <!-- Entrer ci-dessous le titre de l'article -->
+          <h3 class="post-title"> Hello and Welcome to the first post of our blog </h3>
+          <!-- Entrer ci-dessous l'auteur de l'article -->
+          <div class="post-author">
+            <i class="fa fa-user" aria-hidden="true"></i> By Eric N.
+          </div>
 
-  <div class="post-container" id="post-two">
-    <div class="post-content">
-    </div>
-  </div>
+          <!-- Entrer ci-dessous le contenu de l'article, chaque paragraphe est séparé par une balise "p" et les caractères en gras doivent être entouré de la balise "b", pour ajouter une couleur il faut un attribut "style" avec la couleur de votre choix -->
 
-  -->
+          <p>We are pleased to inform we are working on <b style="color:#800080;">Release 2</b> of our Single Sign On MVP (Minimum Viable Product), that will integrate SMS OTP as a second factor for authentication.</p>
 
-  <div class="container post-container" id="post-one">
-    <div class="post-content">
-      <!-- Entrer ci-dessous le titre de l'article -->
-      <h3 class="post-title"> Hello and Welcome to the first post of our blog </h3>
-      <!-- Entrer ci-dessous l'auteur de l'article -->
-      <div class="post-author">
-        <i class="fa fa-user" aria-hidden="true"></i> By Eric N.
-      </div>
+          <p><b style="color: #DAA520;">For Authentication Providers:</b></p>
 
-      <!-- Entrer ci-dessous le contenu de l'article, chaque paragraphe est séparé par une balise "p" et les caractères en gras doivent être entouré de la balise "b", pour ajouter une couleur il faut un attribut "style" avec la couleur de votre choix -->
+          <p>Because of its security enhancement, This feature eases the adoption of our Single Sign On technology by client applications and therefore foster broader eploitation of your user base information.</p>
 
-      <p>We are pleased to inform we are working on <b style="color:#800080;">Release 2</b> of our Single Sign On MVP (Minimum Viable Product), that will integrate SMS OTP as a second factor for authentication.</p>
+          <p><b style="color:#008000;">For Client Applications:</b></p>
 
-      <p><b style="color: #DAA520;">For Authentication Providers:</b></p>
+          <p>In addition to relying on an existing authentication infrastructure, you can ensure that users are authenticated according to your desired level of security (login/password, SMS OTP, login/password+SMS OTP, ....).</p>
 
-      <p>Because of its security enhancement, This feature eases the adoption of our Single Sign On technology by client applications and therefore foster broader eploitation of your user base information.</p>
+          <p>For the sake of customer experience, a second factor would be typically required only the first time the user authenticates to the applicaitonusing X Connect. However, this policy is at the discretion of the Client application.</p>
 
-      <p><b style="color:#008000;">For Client Applications:</b></p>
+          <p><b>Notice</b></p>
 
-      <p>In addition to relying on an existing authentication infrastructure, you can ensure that users are authenticated according to your desired level of security (login/password, SMS OTP, login/password+SMS OTP, ....).</p>
+          <p><b style="color:#800080;">Release 3</b> of the MVP will include <b style="color: #0000FF;">Mobile Connect</b>, a GSM standaridized technology for two factor authentication and athorization solely based on the mobile number and a permanent secret code created by the user on the mobile device SIM card.</p>
 
-      <p>For the sake of customer experience, a second factor would be typically required only the first time the user authenticates to the applicaitonusing X Connect. However, this policy is at the discretion of the Client application.</p>
-
-      <p><b>Notice</b></p>
-
-      <p><b style="color:#800080;">Release 3</b> of the MVP will include <b style="color: #0000FF;">Mobile Connect</b>, a GSM standaridized technology for two factor authentication and athorization solely based on the mobile number and a permanent secret code created by the user on the mobile device SIM card.</p>
-
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Footer Section -->
-  <div class="footer">
-    <div class="container">
-      <div class="col-md-12 text-center">
-        <ul class="footer-menu">
-          <li><a href="index">Home</a></li>
-          <li><a href="about">About</a></li>
-          <li><a href="#">Terms & Privacy</a></li>
-        </ul>
-        <div class="footer-text">
-          <p>
-            Copyright © 2016 XConnect All Rights Reserved.
-          </p>
         </div>
       </div>
     </div>
-  </body>
-  <!-- Jquery and Js Plugins -->
-  <script type="text/javascript" src="assets/js/jquery-2.1.1.js"></script>
-  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="assets/js/custom.js"></script>
+    <div class="col-md-6">
+    <!-- Ajouter ici votre nouvel article -->
+    </div>
+    <div class="col-md-6">
+    <!-- Ajouter ici votre nouvel article -->
+    </div>
+    <div class="col-md-6">
+    <!-- Ajouter ici votre nouvel article -->
+    </div>
+    <div class="col-md-6">
+    <!-- Ajouter ici votre nouvel article -->
+    </div>
+  </div>
+</div>
 
-  </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer Section -->
+<div class="footer">
+  <div class="container">
+    <div class="col-md-12 text-center">
+      <ul class="footer-menu">
+        <li><a href="index">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="#">Terms & Privacy</a></li>
+      </ul>
+      <div class="footer-text">
+        <p>
+          Copyright © 2016 XConnect All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+<!-- Jquery and Js Plugins -->
+<script type="text/javascript" src="assets/js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+</html>
