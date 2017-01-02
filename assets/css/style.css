@@ -942,6 +942,9 @@ code, kbd, pre, samp {
 
 .terms-content li {
   padding: 8px 12px;
+}
+
+.terms-content ul {
   list-style: initial;
   margin: initial;
   font-size: 14px;
