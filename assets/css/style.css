@@ -904,6 +904,14 @@ code, kbd, pre, samp {
   font-size: 14px;
 }
 
+.post-content ul {
+  list-style: initial;
+  margin: initial;
+  padding: 0 0 0 40px;
+  font-size: 14px;
+}
+
+
 .post-author {
   padding: 20px 0px;
 }
