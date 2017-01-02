@@ -948,4 +948,6 @@ code, kbd, pre, samp {
   list-style: initial;
   margin: initial;
   font-size: 14px;
+  padding: 0 0 0 40px;
+
 }
