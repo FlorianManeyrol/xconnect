@@ -883,3 +883,11 @@ code, kbd, pre, samp {
 .flex-item {
   flex: 1 0 auto;
 }
+
+.post-container {
+  border: 1px solid #E2E2E2;
+  border-radius: 5px;
+  padding: 10px 30px;
+  margin-bottom: 30px;
+}
+
