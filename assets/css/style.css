@@ -900,3 +900,10 @@ code, kbd, pre, samp {
   border-radius: 0px 5px 5px 0px;
 }
 
+.post-content p {
+  font-size: 14px;
+}
+
+.post-author {
+  padding: 20px 0px;
+}
