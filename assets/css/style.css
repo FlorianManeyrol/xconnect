@@ -929,3 +929,11 @@ code, kbd, pre, samp {
   text-align: center;
   font-family: Oswald;
 }
+
+.terms-content {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.terms-content li {
+   padding: 8px 12px;
+}
