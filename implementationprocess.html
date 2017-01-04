@@ -64,9 +64,131 @@
       <div class="terms-content">
         <p>This Annex aims to define the implementation modalities of X Connect by the service provider in integration and production environment. It complements the terms and conditions of use of X Conenct service and can not be taken separately.</p>
         <h3>Implementation process</h3>
+        <table class="bordered box-shadow">
+          <thead>
+            <tr>
+              <th colspan="2"><b>X Connect Personnal User</b></th>
+            </tr>
+            <tr>
+              <th><b>Steps</b></th>
+              <th><b>Commitment level</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>X Connect registration and validation of the terms and condition of use</td>
+              <td>Mandatory</td>
+            </tr>
+            <tr>
+              <td>Integrate and configure an client OpenID Connect</td>
+              <td>Mandatory</td>
+            </tr>
+            <tr>
+              <td>Integration of an X Connect button</td>
+              <td>Mandatory</td>
+
+            </tr>
+            <tr>
+              <td>Implementation of the disconnection</td>
+              <td>Mandatory</td>
+
+            </tr>
+            <tr>
+              <td>Reconciliation and dissociation of user account</td>
+              <td>Optional</td>
+
+            </tr>
+            <tr>
+              <td>Handling of errors between X Connect and Service Provider</td>
+              <td>Mandatory</td>
+            </tr>
+            <tr>
+              <td>Expiration of Data</td>
+              <td>Mandatory</td>
+            </tr>
+            <tr>
+              <td>Acceptance tests and start of production</td>
+              <td>Mandatory</td>
+            </tr>
+
+          </tbody>
+        </table>
         <h3>X Connect registration and validation of the terms and condition of use</h3>
+        <p>The service provider must register to X Connect via the registration form made available at http://xonnect.e-monsite.com/contact/sign-up.html. As part of the implementation, the service provider must register specifying the following information:</p>
+        <table class="bordered box-shadow">
+          <tbody>
+            <tr>
+              <td>Name of the service</td>
+              <td>Mandatory</td>
+            </tr>
+            <tr>
+              <td>Contact Email</td>
+              <td>Mandatory</td>
+            </tr>
+            <tr>
+              <td>Logo of service</td>
+              <td>Mandatory</td>
+
+            </tr>
+            <tr>
+              <td>Callback Urls - one per line</td>
+              <td>Mandatory</td>
+
+            </tr>
+            <tr>
+              <td>Your use case</td>
+              <td>Mandatory</td>
+
+            </tr>
+          </tbody>
+        </table>
+        <p>* Additional information on callback URLs:</p>
+        <ul>
+          <li>The URL can be any depth subdomains</li>
+          <li>The service provider can use specific ports</li>
+          <li>The service provider can use an IP rather than FQDN</li>
+          <li>The "search" of the URL may be an arbitrary size</li>
+          <li>The service provider can use "localhost" for its development environments and test:</li>
+        </ul>
+        <p>To validate his registration the service provider must accept the terms and conditions of use of  X Connect service when sending its information.</p>
+
+
+
         <h3>Integration and configuration of an OpenID Connect client</h3>
+        <p>X Connect follows the standard OpenID Connect implementation. The OpenID Connect protocol is an identification overlay on top of the OAuth 2.0 protocol. It allows a service provider to access the pivotal identity of a user, transmitted by an authentication provider through X Connect.</p>
+        <p>* Additional information about IDOC:</p>
+        <ul>
+          <li>Protocol specification: http://openid.net/connect/.</li>
+          <li>Reference OpenID Connect implementation: http://openid.net/developers/libraries/</li>
+        </ul>
+        <p>The service provider is an OpenID Connect relying party to X Connect</p>
+        <p>X Connect provider is an OpenID Connect identity provider for the service provider</p>
         <h3>Integration</h3>
+        <p>The service provider must implement and configure an OpenID Client client to communicate with X Connect (considered OIDC provider).</p>
+        <pre>The OpenID Connect protocol defines three REST calls and one endpoint by OIDC client (three endpoints on provider side)</pre>
+        <pre>The endpoints are available in integration environment here:</pre>
+        <table class="bordered box-shadow">
+          <tbody>
+            <tr>
+              <td><b>Authorization</b></td>
+              <td>https://x-connect.herokuapp.com/authorize</td>
+            </tr>
+            <tr>
+              <td><b>Token</b></td>
+              <td>https://x-connect.herokuapp.com/token</td>
+            </tr>
+            <tr>
+              <td><b>UserInfo</b></td>
+              <td>https://x-connect.herokuapp.com/userinfo</td>
+            </tr>
+            <tr>
+              <td><b>Logout</b></td>
+              <td>https://x-connect.herokuapp.com/logout</td>
+            </tr>
+          </tbody>
+        </table>
+
+
         <h3>Configuration</h3>
         <h3>Kinematic</h3>
         <h3>Implementing the disconnection</h3>
