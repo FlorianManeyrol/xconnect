@@ -216,7 +216,7 @@
 
 .jumbo {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/woman.jpeg");
-  background-position: 50% 50%;
+  background-position: 50% 10%;
   background-repeat: no-repeat;
   background-size: cover;
   -moz-background-size: cover;
@@ -658,7 +658,7 @@ background-size: cover;
 
 .intro {
  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("../images/woman.jpeg");
- background-position: 50% 50%;
+ background-position: 50% 25%;
  background-repeat: no-repeat;
  background-size: cover;
  -moz-background-size: cover;
