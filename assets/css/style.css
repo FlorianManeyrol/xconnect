@@ -966,3 +966,13 @@ td {
 .post-content {
   text-align: justify;
 }
+
+.padding-bottom-60 {
+  padding-bottom:60px;
+}
+
+
+.terms-content h4{
+  font-size: 15px;
+  font-weight: bold;
+}
