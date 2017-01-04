@@ -955,3 +955,14 @@ code, kbd, pre, samp {
 .scenario {
   padding-bottom:30px;
 }
+
+td {
+  font-size: 15px;
+  text-align: justify;
+  color: #696666;
+  line-height: 1.4;
+}
+
+.post-content {
+  text-align: justify;
+}
