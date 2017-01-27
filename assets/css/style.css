@@ -976,3 +976,13 @@ td {
   font-size: 15px;
   font-weight: bold;
 }
+
+.others-links {
+  padding-left: 42px;
+  padding-top: 30px;
+  line-height: 1.4em;
+}
+
+.others-links a {
+ color:#AC201C;
+}
